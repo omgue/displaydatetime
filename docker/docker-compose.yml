@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+    display-time-zone:
+        container_name: display-time-zone
+        build:
+            context: ../display-time-zone
+            dockerfile: Dockerfile
+        ports:
+            - 8080:8080
+
+    display-time-zone-ui:
+        container_name: display-time-zone-ui
+        build:
+            context: ../display-time-zone-ui
+            dockerfile: Dockerfile
+        ports:
+            - 3000:3000
+        environment:
+            - CHOKIDAR_USEPOLLING=true
